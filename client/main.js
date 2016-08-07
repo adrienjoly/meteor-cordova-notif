@@ -20,38 +20,16 @@ if(Meteor.isCordova){
         alert('permission denied')
       }
     });
-
   });
 
-  Template.hello.events({
+  Template.hello4.events({
     'click button'(event, instance) {
       Meteor.startup(function() {
-        navigator.notification.alert('coucou!');
-        for (var i in cordova)
-          console.log('cordova.'+ i);
-      })
-    },
-  });
-
-  Template.hello2.events({
-    'click button'(event, instance) {
-      Meteor.startup(function() {
-        cordova.plugins.notification.local.add({
-            id:         1,  // A unique id of the notifiction
-            title:      '7:00PM - 8:00PM',  // The title of the message
-            message:    'BOGO: Premium drinks at some bar!',  // The message that is displayed
-            icon:       'file://icon.png',
-            led:        '009900',
-            sound:      'file://cricket.mp3',
-            smallIcon:  'file://res/icon/android/small.png'
+        cordova.plugins.notification.local.schedule({
+          id: 1,
+          text: "Single Notification",
+          at: new Date(new Date().getTime() + 1000)
         });
-      });
-    },
-  });
-
-  Template.hello3.events({
-    'click button'(event, instance) {
-      Meteor.startup(function() {
         /*
         cordova.plugin.notification.local.add({
             id:         '2',  // A unique id of the notifiction
@@ -63,29 +41,6 @@ if(Meteor.isCordova){
             smallIcon:  'file://res/icon/android/small.png'
         });
         */
-        window.plugin.notification.local.add({
-          id: 1, // A unique id of the notifiction
-          title: '7:00PM - 8:00PM', // The title of the message
-          message: 'BOGO: Premium drinks at some bar!', // The message that is displayed
-          icon: 'file://icon.png',
-          smallIcon: 'file://icon.png',
-          led: '009900',
-          sound: 'file://cricket.mp3'
-        });
-
-
-      });
-    },
-  });
-
-  Template.hello4.events({
-    'click button'(event, instance) {
-      Meteor.startup(function() {
-        cordova.plugins.notification.local.schedule({
-          id: 1,
-          text: "Single Notification",
-          at: new Date()
-        });
       });
     },
   });
