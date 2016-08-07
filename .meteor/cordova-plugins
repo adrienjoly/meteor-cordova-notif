@@ -1,2 +1,1 @@
-cordova-plugin-app-event@1.2.0
-cordova-plugin-device@1.1.2
+de.appplant.cordova.plugin.local-notification@https://github.com/katzer/cordova-plugin-local-notifications.git#366557fdbe54ff92e030210c5e405d6d57a5f4db

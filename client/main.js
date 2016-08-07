@@ -77,4 +77,17 @@ if(Meteor.isCordova){
       });
     },
   });
+
+  Template.hello4.events({
+    'click button'(event, instance) {
+      Meteor.startup(function() {
+        cordova.plugins.notification.local.schedule({
+          id: 1,
+          text: "Single Notification",
+          at: new Date()
+        });
+      });
+    },
+  });
+
 }
